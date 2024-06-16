@@ -1160,7 +1160,7 @@
  * Override with M92
  *                                      X, Y, Z [, I [, J [, K...]]], E0 [, E1[, E2...]]
  */
-#define DEFAULT_AXIS_STEPS_PER_UNIT   { 54, 54, 400, 100 } // TODO: tényleges mérés
+#define DEFAULT_AXIS_STEPS_PER_UNIT   { 108, 108, 400, 196 } // TODO: tényleges mérés
 
 /**
  * Default Max Feed Rate (linear=mm/s, rotational=°/s)
