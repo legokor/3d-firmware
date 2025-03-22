@@ -35,11 +35,13 @@
 
 /**
  * M75: Start print timer
+ *
+ * ProUI: If the print fails to start and any text is
+ *        included in the command, print it in the header.
  */
 void GcodeSuite::M75() {
   startOrResumeJob();
   #if ENABLED(DWIN_LCD_PROUI)
-    DWIN_Print_Started(false);
     if (!IS_SD_PRINTING()) DWIN_Print_Header(parser.string_arg && parser.string_arg[0] ? parser.string_arg : GET_TEXT(MSG_HOST_START_PRINT));
   #endif
 }
@@ -48,9 +50,8 @@ void GcodeSuite::M75() {
  * M76: Pause print timer
  */
 void GcodeSuite::M76() {
-  print_job_timer.pause();
+  TERN(DWIN_LCD_PROUI, ui.pause_print(), print_job_timer.pause());
   TERN_(HOST_PAUSE_M76, hostui.pause());
-  TERN_(DWIN_LCD_PROUI, DWIN_Print_Pause());
 }
 
 /**
@@ -58,7 +59,6 @@ void GcodeSuite::M76() {
  */
 void GcodeSuite::M77() {
   print_job_timer.stop();
-  TERN_(DWIN_LCD_PROUI, DWIN_Print_Finished());
 }
 
 #if ENABLED(PRINTCOUNTER)
