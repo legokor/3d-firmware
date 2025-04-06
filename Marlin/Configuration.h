@@ -1196,7 +1196,7 @@
  * Override with M92
  *                                      X, Y, Z [, I [, J [, K...]]], E0 [, E1[, E2...]]
  */
-#define DEFAULT_AXIS_STEPS_PER_UNIT   { 106.67, 106.67, 400, 98 } // TODO: tényleges mérés
+#define DEFAULT_AXIS_STEPS_PER_UNIT   { 106.67, 106.67, 400, 424.9 } // TODO: tényleges mérés
 
 /**
  * Default Max Feed Rate (linear=mm/s, rotational=°/s)
@@ -1511,7 +1511,7 @@
  *     |    [-]    |
  *     O-- FRONT --+
  */
-#define NOZZLE_TO_PROBE_OFFSET { -33, -49, -2.15 } // le van mérve, kb. jó
+#define NOZZLE_TO_PROBE_OFFSET { -46, -43, -1.2 } // le van mérve, kb. jó
 
 // Most probes should stay away from the edges of the bed, but
 // with NOZZLE_AS_PROBE this can be negative for a wider probing area.
@@ -1683,7 +1683,7 @@
 // @section extruder
 
 // For direct drive extruder v9 set to true, for geared extruder set to false.
-#define INVERT_E0_DIR false
+#define INVERT_E0_DIR true
 #define INVERT_E1_DIR false
 #define INVERT_E2_DIR false
 #define INVERT_E3_DIR false
@@ -1728,11 +1728,11 @@
 #define Y_BED_SIZE 200
 
 // Travel limits (linear=mm, rotational=°) after homing, corresponding to endstop positions.
-#define X_MIN_POS -43
-#define Y_MIN_POS -77
+#define X_MIN_POS -21
+#define Y_MIN_POS -84
 #define Z_MIN_POS 0
-#define X_MAX_POS X_BED_SIZE + 20 // TODO: kimérés
-#define Y_MAX_POS Y_BED_SIZE + 20 // TODO: kimérés
+#define X_MAX_POS X_BED_SIZE + 75 // TODO: kimérés
+#define Y_MAX_POS Y_BED_SIZE + 160 // TODO: kimérés
 #define Z_MAX_POS 250 // TODO: kimérés
 //#define I_MIN_POS 0
 //#define I_MAX_POS 50
